@@ -21,13 +21,13 @@ using Xunit;
 
 namespace UnitTests
 {
+
     public class SinglyLinkedListTests
     {
         [Fact]
         public void testToSeeIfSinglyLinkedListIsEmpty() //test to see if list is empty
         {
             SinglyLinkedList<String> a = new SinglyLinkedList<String>();
-
             Assert.True(a.isEmpty());
         }
 

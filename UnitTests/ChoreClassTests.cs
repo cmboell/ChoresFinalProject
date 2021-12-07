@@ -168,25 +168,11 @@ namespace UnitTests
         }
 
         [Fact]
-        public void testPriorityLevelIsNotInt() {
-            a.setPriorityLevel('A');
-
-            Assert.IsNotType<int>(a.getPriorityLevel());
-        }
-        [Fact]
         public void testPriorityLevelIsNotString()
         {
             a.setPriorityLevel('A');
 
             Assert.IsNotType<string>(a.getPriorityLevel());
-        }
-        [Fact]
-        public void testPriorityLevelIsCharAfterConverted()
-        {                                    //test to make sure priority level
-            String expected = "a";          //is type char after converted
-            char Actual = Convert.ToChar(expected.ToUpper());
-
-            Assert.IsType<char>(a.getPriorityLevel());
         }
     }
 }

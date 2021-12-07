@@ -27,7 +27,7 @@ namespace ChoresFinalProject
 		}
 
 		public bool isEmpty() {
-			return count() == 0;
+			return this.count() == 0;
 		}
 		public void insert(T val, int pos)//inserts item 
 		{

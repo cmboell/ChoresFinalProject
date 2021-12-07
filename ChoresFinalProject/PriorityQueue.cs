@@ -8,7 +8,7 @@
 * Copyright   : This is my own original work based on
 *               specifications issued by our instructor
 * Description : This program overall description here
-*               Input:  input choice, chore name, hours to complete chores, priority of chore
+*               Input:  input choice, chore name, hours to complete chores, priorityLevel of chore
 *               Output: information about chores, various list sorted in various ways
 * Academic Honesty: I attest that this is my original work.
 * I have not used unauthorized source code, either modified or 
@@ -31,23 +31,18 @@ namespace ChoresFinalProject
             //variables
             public string chore;
             public double hours;
-            public char priority;
-            public int priorityLevel;
+            public char priorityLevel;
+            public int priority;
             public Node next;
             //constructor
-            public Node(string chore, double hours, char priority)
+            public Node(string chore, double hours, char priorityLevel)
             {
                 this.chore = chore;
                 this.hours = hours;
-                this.priority = priority;
-                this.priorityLevel = priority;
+                this.priorityLevel = priorityLevel;
+                this.priority = priorityLevel;
                 this.next = null;
             }
-        }
-
-        public void enqueue(object p1, object p2)
-        {
-            throw new NotImplementedException();
         }
 
         //constructor
@@ -58,29 +53,29 @@ namespace ChoresFinalProject
         }
         //methods
         //create node
-        public Node creatNode(string chore, double hours, char priority)
+        public Node creatNode(string chore, double hours, char priorityLevel)
         {
-            Node create = new Node(chore,hours, priority);
+            Node create = new Node(chore,hours, priorityLevel);
             return create;
         }
         //add
-        public void enqueue(string chore, double hours, char priority)
+        public void enqueue(string chore, double hours, char priorityLevel)
         {
             if (this.length == 0) //checks to see if queue is empty
             {
-                n = creatNode(chore, hours, priority);
+                n = creatNode(chore, hours, priorityLevel);
                 this.length = 1;
             }
             else
             {
-                Node n2 = creatNode(chore, hours, priority);
+                Node n2 = creatNode(chore, hours, priorityLevel);
                 Node n3 = this.n;
                 int nodeLength = length;
                 Node previous = null;
 
-                while (nodeLength > 0)   //checks priority levels
+                while (nodeLength > 0)   //checks priorityLevel levels
                 {
-                    if ((n3.priorityLevel < n2.priorityLevel) && (n3.priorityLevel != n2.priorityLevel))
+                    if ((n3.priority < n2.priority) && (n3.priority != n2.priority))
                     {
                         if (n3.next == null)
                         {
@@ -93,7 +88,7 @@ namespace ChoresFinalProject
                             n3 = n3.next;
                         }
                     }
-                    else if (n3.priorityLevel == n2.priorityLevel)
+                    else if (n3.priority == n2.priority)
                     {
                         if (n3.next != null)
                         {
@@ -137,10 +132,18 @@ namespace ChoresFinalProject
             Node temp = this.n;
             while (nodeLength > 0)
             {
-                Console.WriteLine("Chore " + temp.chore + " |Hours To Complete: " + temp.hours + " |Priority: " + temp.priority);
+                Console.WriteLine("Chore " + temp.chore + " |Hours To Complete: " + temp.hours + " |Priority: " + temp.priorityLevel);
                 nodeLength = nodeLength - 1;
                 temp = temp.next;
             }
+        }
+
+        public int queueSize() {
+            return this.length;
+        }
+
+        public bool isQueueEmpty() {
+            return this.length == 0;
         }
     }
 }
