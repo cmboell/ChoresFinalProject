@@ -19,7 +19,7 @@ using System;
 
 namespace ChoresFinalProject
 {
-    class Program : Menu
+    class Program : Select
     { 
         //main method
         public static void Main(String[] args)

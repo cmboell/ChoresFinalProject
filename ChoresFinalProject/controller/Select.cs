@@ -18,22 +18,9 @@
 using System;
 namespace ChoresFinalProject
 {
-    public class Menu
+    public class Select : Menu
     {
-        //methods
-        public static void showmenu()
-        {
-            //prints out menu options
-            Console.WriteLine("Select A Chores List Option");
-            Console.WriteLine("____________________________");
-            Console.WriteLine("1: Add A Chore ");
-            Console.WriteLine("2: View Chores In The List");
-            Console.WriteLine("3: View Chores By Priority");
-            Console.WriteLine("4: Sort Chores By Hours");
-            Console.WriteLine("5: Show Total Amount Of Chores");
-            Console.WriteLine("6: Remove A Chore");
-            Console.WriteLine("7: Exit");
-        }
+      
         public static void select()
         {   //variables
             SinglyLinkedList<String> choresList = new SinglyLinkedList<String>(); //creates new linked list
