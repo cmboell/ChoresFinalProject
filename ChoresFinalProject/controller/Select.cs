@@ -28,10 +28,13 @@ namespace ChoresFinalProject
             Chore myChore = new Chore(); //creates new chore
             MergeSort sort = new MergeSort(); //creates new merge sort
 
-            string val, chore, priority1;
-            int pos, choice, yes = 0;
+            string val, chore, priority1, pos1;
+            int pos, choice, nextPos, yes = 0;
             double hours;
             char priority;
+
+            //assigning value
+            nextPos = choresList.count() + 1;
 
             try
             {
@@ -63,23 +66,23 @@ namespace ChoresFinalProject
                                 Console.WriteLine("Please enter A Valid Amount Of Hours:");
                             }
 
-                            Console.WriteLine("Priority Level (A-D, A being highest priority):");
-
-                            //priority input                                
-                            priority1 = Console.ReadLine().ToUpper();
-                            while (priority1 != "A" && priority1 != "B" && priority1 != "C" && priority1 != "D")
-                            {                                            //while loop to make user reenter if
-                                Console.WriteLine("Enter A-D:");          //not the desired input
+                            do //do while loop to ensure we get proper input
+                            {
+                                Console.WriteLine("Priority Level (A-D, A being highest priority):");
+                                //priority input                                
                                 priority1 = Console.ReadLine().ToUpper();
                             }
+                            while (priority1 != "A" && priority1 != "B" && priority1 != "C" && priority1 != "D");
                             priority = Convert.ToChar(priority1); //converts our priority to char
+                            
                             Console.WriteLine("Position In List:");
-
-                            while (!int.TryParse(Console.ReadLine(), out pos))
-                            { //to make sure position entered is a number
-
-                                Console.WriteLine("Please Enter A Valid Position Number:");
+                            do //do while loop to ensure we get proper input
+                            {
+                                Console.WriteLine("(Enter 1 To Put In Front Of List Or " + nextPos.ToString() + " To Put At End Of List)"); ;
+                                pos1 = Console.ReadLine();
                             }
+                            while (pos1 == "0" && pos1 != "1" && pos1 != nextPos.ToString());
+                            pos = Convert.ToInt32(pos1);
 
                             myChore.setName(chore);
                             myChore.setHourstToComplete(hours);

@@ -41,6 +41,7 @@ namespace ChoresFinalProject
 			}
 			else if (pos == 1)//insertion at beginning of list
 			{
+				
 				newnode.next = first;
 				first = newnode;
 				Console.WriteLine("Added: " + newnode.val);//confirms we have added to list
@@ -67,6 +68,7 @@ namespace ChoresFinalProject
 			}
 			else Console.WriteLine("Invalid position!");
 		}
+		
 		//delete item   
 		public void delete(int pos)
 		{
