@@ -29,6 +29,7 @@ namespace ChoresFinalProject
             Console.WriteLine("____________________________");
             //calls menu method
             select();
+            
         }
     }
 }

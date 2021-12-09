@@ -116,7 +116,11 @@ namespace ChoresFinalProject
 
                         case 6: //option to remove a chore from the list by position
                             Console.WriteLine("Position Of Chore You Would Like To Remove:");
-                            pos = Convert.ToInt32(Console.ReadLine());
+                            //exception handling to make sure we get a number
+                            while (!int.TryParse(Console.ReadLine(), out pos))
+                            { //to make sure user choice is a number
+                                Console.WriteLine("Please enter a valid number:");
+                            }
                             choresList.delete(pos);
                             break;
 
