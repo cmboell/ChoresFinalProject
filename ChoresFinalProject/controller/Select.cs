@@ -33,9 +33,7 @@ namespace ChoresFinalProject
             double hours;
             char priority;
 
-            //assigning value
-            nextPos = choresList.count() + 1;
-
+            
             try
             {
                 while (yes == 0) //when user value = 0 the app doesn't end
@@ -74,20 +72,25 @@ namespace ChoresFinalProject
                             }
                             while (priority1 != "A" && priority1 != "B" && priority1 != "C" && priority1 != "D");
                             priority = Convert.ToChar(priority1); //converts our priority to char
-                            
+
+                            //assigning value
+                            nextPos = choresList.count() + 1;
+
                             Console.WriteLine("Position In List:");
                             do //do while loop to ensure we get proper input
                             {
                                 Console.WriteLine("(Enter 1 To Put In Front Of List Or " + nextPos.ToString() + " To Put At End Of List)"); ;
                                 pos1 = Console.ReadLine();
                             }
-                            while (pos1 == "0" && pos1 != "1" && pos1 != nextPos.ToString());
+                            while (pos1 == "0" || pos1 != "1" && pos1 != nextPos.ToString());
                             pos = Convert.ToInt32(pos1);
 
+                            //assigns values
                             myChore.setName(chore);
                             myChore.setHourstToComplete(hours);
                             myChore.setPriorityLevel(priority);
 
+                            //adding to each thing
                             pQ.enqueue(chore, hours, priority);
 
                             val = myChore.toString();
